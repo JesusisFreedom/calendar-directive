@@ -1,0 +1,22 @@
+<div class="calendar-wrapper">
+  <div class="calendar-header">
+    <header class="calendar-header-display">
+      <h1>{{currentDate | formatDate: 'MMMM YYYY'}}</h1>
+    </header>
+    <div class="actions">
+      <select ng-model="dateKey.month" ng-options="key*1 as value for (key, value) in months">
+        <option value="">-- choose month --</option>
+      </select>
+      <select ng-model="dateKey.year" ng-options="value as value for (key, value) in years">
+        <option value="">-- choose year --</option>
+      </select>
+    </div>
+  </div>
+  <div class="calendar">
+    <div class="day" ng-class="{'other-month': day.meta.otherMonth}" ng-repeat="day in days">
+      <div class="day-display">
+        {{day.moment | formatDate : 'dd DD'}}
+      </div>
+    </div>
+  </div>
+</div>

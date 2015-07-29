@@ -1,0 +1,42 @@
+/* app css stylesheet */
+html,body{
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  *{
+    box-sizing: border-box;
+  }
+}
+h1{
+  margin: 0;
+}
+.calendar-wrapper {
+  height: 100%;
+  $header-height: 10%;
+  .calendar-header{
+    height: $header-height;
+    background-color: #999999;
+    text-align: center;
+    .calendar-header-display{
+
+    }
+  }
+  .calendar {
+    width: 100%;
+    height: 100 - $header-height;
+    .day {
+      width: 14.2857%;
+      height: 16.666%;
+      display: inline-block;
+      border-right: 1px solid #000;
+      border-bottom: 1px solid #000;
+      &.other-month{
+        background-color: #ccc;
+      }
+      &:nth-child(7n-6){
+        border-left: 1px solid #000;
+      }
+      padding: 12px;
+    }
+  }
+}
