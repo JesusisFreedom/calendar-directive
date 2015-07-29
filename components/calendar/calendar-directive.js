@@ -14,7 +14,7 @@ angular.module('calendarDirective', [])
   .directive('calendar', ['range', function (range) {
     return {
       restrict: 'AE',
-      templateUrl: 'calendar.html',
+      templateUrl: 'components/calendar/calendar.html',
       scope: true,
       link: function ($scope, $element, $attrs) {
 
@@ -33,6 +33,7 @@ angular.module('calendarDirective', [])
           return (startYear - 1) + i;
         });
 
+        //I should put this in a service? The  unit test it separatley.
         var buildMonth = function (date) {
           var monthStart = date.clone().startOf('month'),
             startDay = monthStart.day(),
@@ -77,7 +78,7 @@ angular.module('calendarDirective', [])
           month: $scope.currentDate.month(),
           year: $scope.currentDate.year()
         };
-
+        //Would be great to be able to create a spy to ensure that after scope.digets is called and the watch gets triggered that it calls the method. That would be BDD instead of TDD
         $scope.$watch('dateKey', function () {
           switchDate($scope.dateKey.month, $scope.dateKey.year);
         }, true);
